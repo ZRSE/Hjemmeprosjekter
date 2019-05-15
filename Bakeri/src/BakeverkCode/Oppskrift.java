@@ -3,6 +3,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
+
+//konstruktøren til oppskrift, brukt atomicInteger for autoincrement.
+// i denne filen finner man også getters og setters, og en tostring
+
 public class Oppskrift {
 	
 	static final AtomicInteger inkremetOppId = new AtomicInteger(0);
@@ -12,11 +16,11 @@ public class Oppskrift {
 	String produktKlasse;
 	ArrayList ingredienser;
 	
-	public Oppskrift(int oppskriftID, String oppskriftNavn, Date registrertDato, String produktKlasse, ArrayList ingredienser) {
+	public Oppskrift(/*int oppskriftID,*/ String oppskriftNavn, /*Date registrertDato,*/ String produktKlasse, ArrayList ingredienser) {
 		super();
 		this.oppskriftID = inkremetOppId.incrementAndGet();
 		this.oppskriftNavn = oppskriftNavn;
-		this.registrertDato = registrertDato;
+		//this.registrertDato = registrertDato;
 		this.produktKlasse = produktKlasse;
 		this.ingredienser = ingredienser;
 	}

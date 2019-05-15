@@ -21,11 +21,41 @@ public class BakeriMain {
 	
 	//For å legge til ingrediens
 	public void addIngrediens(int ingrediensID, String ingrediensNavn, int lagerbeholdningGram) {
+
+		//Todo:_legg inn en løkke som sjekker om noe på den id finnes fra før
+
+		
 		Ingrediens ingredienser = new Ingrediens(ingrediensID, ingrediensNavn, lagerbeholdningGram);
 		ingrediens.add(ingredienser);
 	}
 	
-	public void addOppskrift(int oppskriftID, String oppskriftNavn, Date registrertDato, String produktKlasse, ArrayList ingredienser) {
+	public void addOppskrift(String oppskriftNavn, String produktKlasse, ArrayList ingredienser) {
+
+		//Todo:_legg inn en løkke som sjekker om noe på den id finnes fra før
+
+		
+		Oppskrift oppskrift = new Oppskrift(oppskriftNavn, produktKlasse, ingredienser);
+		oppskrifter.add(oppskrift);
+	}
+	
+	public boolean updateIngredient(int ingrediensId, int lagerbeholdningGram) {
+		
+		 
+		//oppdater lagerbeholdning
+		
+		for (int i = 0; i < ingrediens.size(); i++) {
+			if (ingrediens.get(i).getIngrediensID() == ingrediensId) {
+				
+				lagerbeholdningGram += lagerbeholdningGram;
+						
+				ingrediens.get(i).setLagerbeholdningGram(lagerbeholdningGram);
+				
+			}
+		}
+		
+
+		
+		return false;
 		
 	}
 	
@@ -33,6 +63,8 @@ public class BakeriMain {
 	public boolean visIngredienser() {
 		
 		
+		
+		//for å skrive ut ingredienser
 		for(Ingrediens ing : ingrediens) {
 			
 			
@@ -61,7 +93,8 @@ public class BakeriMain {
 	
 
 	public static void main(String[] args) {
-			
+	
+		
 		BakeriMain KnowitBakeri = new BakeriMain("Knowits Bakeri");
 		System.out.println("Velkommen til Knowits Bakeri");
 		
@@ -69,12 +102,20 @@ public class BakeriMain {
 		KnowitBakeri.addIngrediens(0, "Pepper", 2);
 		KnowitBakeri.addIngrediens(0, "Hvete", 500);
 		KnowitBakeri.addIngrediens(0, "Havre", 520);
+		
+		
+		//KnowitBakeri.addOppskrift("Kake", "Gjærbakst",  );
 
 		
 		System.out.println(KnowitBakeri.visIngredienser());
 		
+		System.out.println("//////////////////////////////////////");
 		
+		//Legg til 5000 gram 
+		KnowitBakeri.updateIngredient(2, 5000);
 		
+		System.out.println(KnowitBakeri.visIngredienser());
+
 	}
 
 }

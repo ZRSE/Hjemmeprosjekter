@@ -2,6 +2,10 @@ package BakeverkCode;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+
+//konstruktøren til ingrediens, brukt atomicInteger for autoincrement
+//i denne filen finner man også getters og setters, og en tostring
+
 public class Ingrediens {
 	
 	static final AtomicInteger inkremetId = new AtomicInteger(0);
